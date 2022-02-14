@@ -1,12 +1,12 @@
 package com.deo.jet.common.bean;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class RoutePath {
     private RoutePoint from;
     private RoutePoint to;
