@@ -2,7 +2,7 @@ server:
   port: 8083
 spring:
   kafka:
-    bootstrap-servers: localhost:29092
+    bootstrap-servers: localhost:9092
     template:
       default-topic: officecRoutes
     consumer:
@@ -10,12 +10,12 @@ spring:
       auto-offset-reset: latest
 application:
   ports:
-    -name: "Port 1"
+    - name: "Port 1"
       x: 10
       y: 20
-    -name: "Port 2"
+    - name: "Port 2"
       x: 70
       y: 40
-    -name: "Port 3"
+    - name: "Port 3"
       x: 50
       y: 80
