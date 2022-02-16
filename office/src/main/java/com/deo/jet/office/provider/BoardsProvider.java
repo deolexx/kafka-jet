@@ -1,7 +1,6 @@
 package com.deo.jet.office.provider;
 
 import com.deo.jet.common.bean.Board;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -13,17 +12,16 @@ import java.util.concurrent.locks.ReentrantLock;
 
 @Slf4j
 @Component
-@Getter
 public class BoardsProvider {
     private final List<Board> boards = new ArrayList<>();
     private final Lock lock = new ReentrantLock(true);
 
-    private Optional<Board> getBoard(String boardName) {
+    public Optional<Board> getBoard(String boardName) {
         return boards.stream().filter(board -> board.getName().equals(boardName))
                 .findFirst();
     }
 
-    private void addBoard(Board board) {
+    public void addBoard(Board board) {
         try {
             lock.lock();
             Optional<Board> optionalBoard = getBoard(board.getName());
@@ -37,5 +35,9 @@ public class BoardsProvider {
         } finally {
             lock.unlock();
         }
+    }
+
+    public List<Board> getBoards() {
+        return boards;
     }
 }

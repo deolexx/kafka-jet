@@ -1,5 +1,6 @@
 package com.deo.jet.office.listener;
 
+import com.deo.jet.common.messages.Message;
 import com.deo.jet.common.processor.MessageConverter;
 import com.deo.jet.common.processor.MessageProcessor;
 import com.github.benmanes.caffeine.cache.Cache;
@@ -22,7 +23,7 @@ public class MessageListener {
     private final MessageConverter messageConverter;
     private final Cache<String, WebSocketSession> sessionCache;
     @Autowired
-    private Map<String, MessageProcessor<? extends MessageProcessor>> processors = new HashMap<>();
+    private Map<String, MessageProcessor<? extends Message>> processors = new HashMap<>();
 
     @KafkaListener(id = "OfficeId", topics = "officeRoutes")
     public void kafkaListen(String data) {
