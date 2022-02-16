@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class AirportsProvider {
     private final List<AirPort> ports = new ArrayList<>();
 
-    private AirPort findAirPortNAdRemoveBoard(String boardName) {
+    public AirPort findAirPortNAdRemoveBoard(String boardName) {
         AtomicReference<AirPort> res = new AtomicReference<>();
         ports.stream().filter(airPort -> airPort.getBoards().contains(boardName))
                 .findFirst()
